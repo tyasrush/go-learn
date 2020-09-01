@@ -1,3 +1,12 @@
+// Package classification of Learn API
+//
+// Documentation for Learn API
+//
+// 	Schemes: http
+// 	BasePath: /
+// 	Version: 0.1.0
+//
+// swagger:meta
 package main
 
 import (

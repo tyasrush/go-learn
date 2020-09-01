@@ -1,0 +1,9 @@
+basePath: /
+info:
+  description: Documentation for Learn API
+  title: of Learn API
+  version: 0.1.0
+paths: {}
+schemes:
+- http
+swagger: "2.0"
