@@ -11,10 +11,12 @@ package main
 
 import (
 	"encoding/xml"
+	"fmt"
 	"log"
 	"net/http"
 	"time"
 
+	"github.com/spf13/viper"
 	"github.com/tiaguinho/gosoap"
 )
 
@@ -35,6 +37,22 @@ var (
 )
 
 func main() {
+	viper.SetConfigType("toml")
+	viper.SetConfigFile("config/app.toml")
+	if err := viper.ReadInConfig(); err != nil {
+		fmt.Errorf("error - %v", err)
+		if _, ok := err.(viper.ConfigFileNotFoundError); ok {
+			fmt.Errorf("error not found - %v", err)
+		}
+	}
+
+	cfg := viper.GetViper()
+
+	if cfg != nil {
+		psgr := cfg.Sub("postgres.read")
+		fmt.Printf("config - %v\n", psgr.GetString("host"))
+	}
+
 	httpClient := &http.Client{
 		Timeout: 1500 * time.Millisecond,
 	}

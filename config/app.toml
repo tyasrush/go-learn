@@ -1,0 +1,25 @@
+[postgres.read]
+host = "read-host" # 35.240.215.95 / sabredbserver
+port = 5432
+user = "postgres" #/ username
+password = "smvDNEBGwHq7C20B" # dev-P45sw012DSup3Rraha514! / password
+database = "cabeen_sabre" # sabre / sabredb
+log = true
+log_level = "trace" # trace|debug|info|warn|error|none -> default = info
+# sql.DB connection settings
+con_max_open = 1
+con_max_idle = 1
+con_max_lifetime = 180
+[postgres.write]
+# host = "35.247.191.137" # 35.240.215.95 / sabredbserver
+host = "write-host" # 35.240.215.95 / sabredbserver
+port = 5432
+user = "postgres" #/ username
+password = "smvDNEBGwHq7C20B" # dev-P45sw012DSup3Rraha514! / password
+database = "cabeen_sabre" # sabre / sabredb
+log = true
+log_level = "trace" # trace|debug|info|warn|error|none -> default = info
+# sql.DB connection settings
+con_max_open = 1
+con_max_idle = 1
+con_max_lifetime = 180
