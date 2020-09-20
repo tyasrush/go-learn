@@ -17,12 +17,16 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 	"time"
 
 	"github.com/jung-kurt/gofpdf"
+	"github.com/rs/zerolog"
 	"github.com/spf13/viper"
 	"github.com/tiaguinho/gosoap"
 	"github.com/tyasrush/go-learn/helper/html"
+	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
+	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
 )
 
 // GetIPLocationResponse will hold the Soap response
@@ -41,7 +45,25 @@ var (
 	r GetIPLocationResponse
 )
 
+func Log(ctx context.Context, span ddtrace.Span, message string, args ...interface{}) {
+	event := zerolog.Ctx(ctx).Debug()
+	i := 0
+	for _, val := range args {
+		span.SetTag(message, fmt.Sprintf("%+v\n", val))
+		event.Interface(strconv.Itoa(i), fmt.Sprintf("%+v\n", val))
+		i++
+	}
+
+	event.Msg(fmt.Sprintf("%v . dd.trace_id=%d dd.span_id=%d ", message, span.Context().TraceID, span.Context().SpanID))
+}
+
 func main() {
+	tracer.Start(tracer.WithAgentAddr("127.0.0.1:8126"))
+
+	span, _ := tracer.StartSpanFromContext(context.Background(), "[ReservationHandler-ConnectFlight]")
+	defer span.Finish()
+	Log(context.Background(), span, "Testing")
+
 	viper.SetConfigType("toml")
 	viper.SetConfigFile("config/app.toml")
 	if err := viper.ReadInConfig(); err != nil {
