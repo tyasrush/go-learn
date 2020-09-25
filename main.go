@@ -13,12 +13,21 @@ import (
 	"context"
 	"encoding/xml"
 	"fmt"
+	"image/png"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 	"strconv"
+	"strings"
 	"time"
+
+	"github.com/disintegration/imaging"
+
+	"github.com/boombuler/barcode"
+
+	"github.com/SebastiaanKlippert/go-wkhtmltopdf"
+	"github.com/boombuler/barcode/pdf417"
 
 	"github.com/jung-kurt/gofpdf"
 	"github.com/rs/zerolog"
@@ -189,4 +198,83 @@ func CreatePDF() {
 	if err != nil {
 		fmt.Errorf("error close file template")
 	}
+
+	// ExampleNewPDFGenerator()
+
+	err = CreatePDF417Barcode("testing hahaha", true)
+	if err != nil {
+		log.Fatal(fmt.Errorf("error %v", err))
+	}
+}
+
+func ExampleNewPDFGenerator() {
+	// Create new PDF generator
+	pdfg, err := wkhtmltopdf.NewPDFGenerator()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Set global options
+	pdfg.Dpi.Set(300)
+	pdfg.Orientation.Set(wkhtmltopdf.OrientationPortrait)
+
+	rd := strings.NewReader(html.BoardingPassHTML)
+
+	// page := wkhtmltopdf.NewPage(fmt.Sprintf("file://%s", filePath))
+	page := wkhtmltopdf.NewPageReader(rd)
+
+	// Set options for this page
+	page.FooterRight.Set("[page]")
+	page.FooterFontSize.Set(10)
+	// page.Zoom.Set(0.95)
+
+	// Add to document
+	pdfg.AddPage(page)
+
+	// Create PDF document in internal buffer
+	err = pdfg.Create()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Write buffer contents to file on disk
+	// err = pdfg.WriteFile("./simplesample.pdf")
+	err = pdfg.WriteFile("./simplesample.pdf")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("Done")
+	// Output: Done
+}
+
+func CreatePDF417Barcode(barcodeStr string, isRotate bool) error {
+	bc, err := pdf417.Encode(barcodeStr, 5)
+	if err != nil {
+		return err
+	}
+
+	bcpdf, err := barcode.Scale(bc, 137, 38)
+	if err != nil {
+		return err
+	}
+
+	if isRotate {
+		imgg := imaging.Rotate90(bcpdf)
+		err = imaging.Save(imgg, "./rotate-barcode.png")
+		if err != nil {
+			return err
+		}
+	} else {
+		file, err := os.Create("./barcode.png")
+		if err != nil {
+			return err
+		}
+
+		defer file.Close()
+
+		png.Encode(file, bcpdf)
+	}
+
+	return nil
 }

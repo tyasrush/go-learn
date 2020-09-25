@@ -10,13 +10,13 @@ var (
         @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 
         body {
+            font-family: "Poppins", sans-serif;
             background-color: #ffffff;
             margin: 0;
             padding: 0;
         }
 
         .container {
-            flex-grow: 1;
             margin: 0 auto;
             position: relative;
             width: auto;
@@ -28,98 +28,91 @@ var (
             }
         }
 
-        /* @media screen and (min-width: 1216px) {
-            .container {
-                max-width: 1152px;
-            }
-        }
-
-        @media screen and (min-width: 1408px) {
-            .container {
-                max-width: 1344px;
-            }
-        } */
-
-        .title-boarding-pass {
-            font-family: "Poppins", sans-serif;
-            font-size: 24px;
-            color: #ffffff;
-            font-weight: 600;
-            padding-left: 7%;
-            padding-top: 2%;
-            max-width: 100%;
-        }
-
+        /* CARD HEADER SECTION */
         .header {
             width: 100%;
+            margin-bottom: 0;
             height: 225px;
             background-color: #04847D;
             color: white;
         }
 
-        .content-card-boarding {
-            margin-left: 6%;
-            margin-right: 6%;
-            margin-top: -20%;
+        .header > h2 {
+            font-size: 24px;
+            padding-left: 7%;
+            padding-top: 2%;
         }
 
-        .main-card-boarding {
-            width: 100%;
+        .card-bp {
+            float: left;
+            margin: -17% 6% 0 6%;
             background-color: #ffffff;
-            min-height: 270px;
+            width: 88%;
+            min-height: 200px;
+            max-height: 270px;
             border-radius: 15px;
-            border-style: solid;
-            border-width: 1.5px;
-            border-color: #c4c4c4;
-            margin-top: 3%
+            border: 2px solid #c4c4c4;
         }
 
-        .content-header-card-main-boarding {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            padding-left: 3%;
-            padding-right: 3%;
-            align-items: center;
-            padding-top: 1.5%;
-            padding-bottom: 1.5%;
+        .card-bp-header {
+            min-height: 30px;
+            max-height: 70px;
+            padding: 10px 3%;
+            border-bottom: 2.5px solid #c4c4c4;
         }
 
-        .content-body-card-main-boarding {
-            display: flex;
-            flex-direction: row;
-            margin-top: 1%;
-            margin-bottom: 1%;
-            margin-right: 4%;
-
+        .icon-lion {
+            vertical-align: middle;
+            height: 26px;
         }
 
-        .content-body-card-main-boarding:after {
-            content: "";
-            display: table;
-            clear: both;
+        .icon-barcode {
+            vertical-align: middle;
+            height: 39.5px;
+            margin: 0 0 0 70%;
         }
 
         .column-barcode {
             float: left;
-            min-height: 170px;
-            width: 13%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+            min-height: 20%;
+            max-height: 30%;
+            width: 17%;
         }
 
-        .column-information-boarding {
-            float: left;
-            width: 90%;
+        .icon-body-barcode {
+            margin: 0px 24px;
+            min-width: 50px;
+            max-width: 70px;
+            height: 190px;
         }
-        
+
+        #column-information-boarding {
+            display: inline;
+            float: left;
+        }
+
+        .card-bp-body {
+            min-width: 70%;
+            max-width: 100%;
+            float: left;
+            margin: 1% 4% 1% 0;
+        }
 
         .content-inside-information {
-            display: flex;
-            flex-direction: row;
-            padding-top: 1%;
+            display: inline-block;
+        }
+
+        #content-info-header {
+            width: 115%;
+            min-height: 50px;
+            max-height: 70px;
+            padding: 1% 1% 2% 0;
+            border-bottom: 2.5px solid #c4c4c4;
+        }
+        
+        .content-info-header-field {
+            float: left;
+            width: 30%;
         }
 
         .second-content-inside-information {
@@ -129,8 +122,8 @@ var (
 
         .column-inside-information {
             float: left;
-            min-width: 34.5%;
-            max-width: 34.5%;
+            min-width: 33.3%;
+            max-width: 33.3%;
         }
 
         .title-main-boarding {
@@ -172,138 +165,72 @@ var (
             width: 50%;
         }
 
-        .icon-lion {
-            max-width: 100%;
-            height: 26px;
-        }
-
-        .icon-barcode {
-            max-width: 100%;
-            height: 39.5px;
-        }
-
-        .icon-body-barcode {
-            width: 200px;
-            padding-right: 6%;
-            padding-bottom: 10%;
-            /* margin-left: -35%; */
-            -ms-transform: rotate(-90deg);
-            /* IE 9 */
-            transform: rotate(-90deg);
-        }
-
-        .hr-head {
-            border-color: #c4c4c4;
-            border-style: solid;
-            border-width: 0.5px;
-            margin: 0%;
-        }
-
-        .hr-body {
-            margin-top: 2%;
-            margin-bottom: 2%;
-            margin-left: 0%;
-            border-color: #c4c4c4;
-            border-style: solid;
-            border-width: 0.5px;
-            margin-right: 0%;
-            width: 100%;
-        }
-
-        .title-boarding {
-            font-family: "Poppins", sans-serif;
-            font-size: 19px;
-            color: #454545;
-            margin: 0px;
+        .content-title-boarding {
+            float: left;
+            margin: 20px 0;
+            height: 31px;
             width: 100%;
             text-align: center;
-            font-weight: bold;
-        }
-
-        .content-title-boarding {
-            margin-top: 2%;
-            margin-bottom: 3%;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
+            /* background-color: blue; */
         }
 
         .border-gray-title {
+            /* float: left; */
             background-color: #dddddd;
             height: 1px;
-            min-width: 17%;
+            margin-top: 15px;
+            /* width: 165px; */
+            width: 100%;
+            /* min-width: 50px;
+            max-width: 80px; */
+        }
+
+        .title-boarding {
+            /* float: left; */
+            font-size: 19px;
+            color: #454545;
+            width: 600px;
+            height: 31px;
+            margin: -15px auto 0 auto;
+            /* margin-top: -15px; */
+            font-weight: 600;
+            z-index: 10;
+            background-color: #fff;
         }
 
         .column-card-boarding {
             float: left;
-            width: 48%;
-
+            width: 50%;
         }
 
         .column-card-boarding-four {
+            margin: 12px 20px 10px 0;
             float: left;
             width: 76%;
+            height: 280px;
         }
 
         .column-card-boarding-five {
             float: left;
-            width: 20%;
+            margin-top: 12px;
+            width: 175px;
+            height: 280px;
         }
 
         .row {
-            display: flex;
-            margin: 2%;
-            margin-left: 4.5%;
-            margin-right: 4.5%;
-            justify-content: center;
-        }
-
-        /* Clear floats after the columns */
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        .row-second {
-            display: flex;
-            margin-left: 4.5%;
-            margin-right: 4.5%;
-            justify-content: center;
-        }
-
-        /* Clear floats after the columns */
-        .row-second:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        .gap-column {
-            margin-left: 1%;
-            margin-right: 1%;
-        }
-
-        .gap-inside {
-            margin-top: 2%;
-            margin-bottom: 2%;
+            margin: 0 6% 0 6%;
         }
 
         .card-boarding-one {
-            width: 100%;
-            min-height: 28%;
-            max-height: 35%;
-            background-color: #ffffff;
-            border-color: #c4c4c4;
-            border-style: solid;
-            border-width: 1px;
+            width: 95%;
+            min-height: 100px;
+            max-height: 300px;
+            border: 1px solid #c4c4c4;
             border-radius: 15px;
         }
 
         .card-boarding-two {
-            width: 100%;
-            height: 60.5%;
+            width: 95%;
             margin-top: 3%;
             background-color: #ffffff;
             border-color: #c4c4c4;
@@ -314,11 +241,8 @@ var (
 
         .card-boarding-three {
             width: 100%;
-            max-height: 100%;
             background-color: #ffffff;
-            border-color: #c4c4c4;
-            border-style: solid;
-            border-width: 1px;
+            border: 1px solid #c4c4c4;
             border-radius: 15px;
         }
 
@@ -369,10 +293,10 @@ var (
 
         .rectangle-four {
             width: 100%;
-            height: 36px;
-            margin-top: -1%;
-            background-size: contain;
-            background-repeat: no-repeat;
+            height: 96px;
+            /* margin-top: -1%; */
+            /* background-size: contain; */
+            /* background-repeat: no-repeat; */
             /* background-image: url("https://storage.googleapis.com/cabeen-dev/rectangle_four.svg"); */
         }
 
@@ -407,24 +331,43 @@ var (
             font-weight: bold;
             color: #ffffff;
         }
-        .content-card-travel {
-            display: flex;
-            flex-direction: row;
-        }
 
         .row-content-travel {
-            margin: 6%;
-            margin-top: 2%;
-            margin-left: 3%;
-            margin-bottom: 5%;
-            display: flex;
+            margin-top: 2% 0 5% 3%;
             max-width: 100%;
-            flex-direction: row;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .row-content-travel ul {
+            /* font-size: 10px; */
+            float: left;
+            list-style: none;
+            margin-left: -20px;
+            width: 200px;
+        }
+
+        .row-content-travel ul li::before {
+            content: "\2022";
+            color:  #04847D;
+            font-size: 18px;
+            /* font-weight: bold; If you want it to be bold */
+            display: inline-block; /* Needed to add space between the bullet and the text */
+            width: 1em; /* Also needed for space (tweak if needed) */
+            margin-left: -1em; /* Also needed for space (tweak if needed) */
+        }
+
+        .card-boarding-four ul {
+            margin: 10px 0 0 3px;
+            width: 89%;
+            /* margin: 1em; */
         }
 
         .icon-boarding {
+            margin: 20px 13px;
             width: 75px;
             height: 75px;
+            float: left;
         }
 
         .stamp-here {
@@ -455,15 +398,6 @@ var (
             content: "";
             display: table;
             clear: both;
-        }
-
-        .desc-travel {
-            font-family: "Poppins", sans-serif;
-            font-size: 10px;
-            margin: 3px 0px;
-            color: #454545;
-            font-weight: 600;
-
         }
 
         .gap-desc-travel-one {
@@ -512,20 +446,13 @@ var (
 
         .column-desc-boarding {
             float: left;
-            width: 75%;
+            margin-top: 20px;
+            min-width: 50px;
+            max-width: 200px;
+            font-size: 10px;
+            color: #454545;
+            font-weight: 600;
         }
-
-        .second-column-desc-boarding {
-            float: left;
-            width: 75%;
-        }
-
-        
-        .third-column-desc-boarding {
-            float: left;
-            width: 85%;
-        }
-
 
         @media screen and (max-width: 600px) {
             .column-desc-boarding {
@@ -536,28 +463,20 @@ var (
         }
 
         /* Clear floats after the columns */
-        .understand-text {
-            font-family: "Poppins", sans-serif;
+        p.understand-text {
             font-size: 10px;
             color: #04847d;
-            margin-top: -6%;
+            margin-top: -9px;
+            font-weight: 600;
             width: 80%;
-            margin-bottom: 3%;
+            margin-bottom: 27px;
             margin-left: 4%;
             font-weight: 600;
         }
 
-        .content-backpack {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            margin-top: 9.5%;
-            margin-bottom: 8%;
-        }
-
-        .group-backpack {
-            width: 276px;
-            height: 99px;
+        .content-backpack img {
+            margin: 10px 0 30px 70px;
+            height: 130px;
             object-fit: contain;
         }
 
@@ -565,114 +484,77 @@ var (
             background-color: #ddefe9;
             width: 100%;
             height: 55px;
-            margin-top: 2%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-top: 10px;
+            float: left;
         }
 
-        .thanks-choosing {
-            font-family: "Poppins", sans-serif;
+        .bg-thanks h2 {
             font-size: 18px;
-            padding-top: 2%;
-            padding-bottom: 3%;
             color: #04847d;
             font-weight: 600;
             text-align: center;
         }
 
         .footer-boarding {
+            float: left;
             width: 100%;
-            height:97.2px;
+            height:98px;
             background-color: #f0f9f6;
         }
 
         .icon-cabeen-boarding {
-            width: 105px;
-            height: 25.5px;
-            padding-top: 5%;
+            float: left;
+            height: 28px;
+            margin-left: 6%;
+            margin-top: 35px;
             object-fit: contain;
         }
 
-        .content-footer-boarding {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin-top: -1%;
-            margin-bottom: 0%;
-            margin-left: 7%;
-            margin-right: 7%;
-        }
-
         .download-cabeen-text {
-            font-family: "Poppins", sans-serif;
             font-size: 12px;
             margin-top: 7px;
-            margin-bottom: 0px;
+            margin-bottom: 7px;
             color: #99b1ab;
             font-weight: 600;
         }
 
         .content-download-footer {
-            display: flex;
-            flex-direction: column;
-            margin-top: 1%;
+            float: left;
+            margin: 0 6% 0 47%;
         }
 
-        .content-store {
-            display: flex;
-            flex-direction: row;
-        }
-
-        .appstore {
-            width: 125px;
-            height: 52.5px;
-            cursor: pointer;
-            object-fit: contain;
-
-        }
-
-        .playstore {
-            width: 125px;
-            height: 52.5px;
-            margin-right: 3%;
-            object-fit: contain;
-            cursor: pointer;
-
+        .content-store img {
+            height: 40px;
         }
     </style>
     <div class="container">
         <div class="header">
-        <!-- <div style="width: 100%;height: 225px;background-color: #04847d;color: #fff;"> -->
-            <p class="title-boarding-pass">Your Boarding Pass</p>
+            <h2>Your Boarding Pass</h2>
         </div>
-        <div class="content-card-boarding">
-            <div class="main-card-boarding">
-                <div class="content-header-card-main-boarding">
+        <div class="card-bp">
+                <div class="card-bp-header">
                     <img src="https://storage.googleapis.com/cabeen-dev/icon_lion.svg" class="icon-lion">
                     <img src="https://storage.googleapis.com/cabeen-dev/barcode.svg" class="icon-barcode">
                 </div>
-                <hr class="hr-head" />
-                <div class="content-body-card-main-boarding">
+                <div class="card-bp-body">
                     <div class="column-barcode">
-                        <img src="https://storage.googleapis.com/cabeen-dev/barcode.svg" class="icon-body-barcode">
+                        <img src="https://storage.googleapis.com/cabeen-dev/pdf_test.jpg" class="icon-body-barcode">
                     </div>
-                    <div class="column-information-boarding">
-                        <div class="content-inside-information">
-                            <div class="column-inside-information">
+                    <div id="column-information-boarding">
+                        <div id="content-info-header">
+                            <div class="content-info-header-field">
                                 <p class="title-main-boarding">Name</p>
                                 <p class="subtitle-main-boarding">{{.FullName}}</p>
                             </div>
-                            <div class="column-inside-information">
+                            <div class="content-info-header-field">
                                 <p class="title-main-boarding">Frequent Flyer No.</p>
                                 <p class="subtitle-main-boarding">{{.FFNumber}}</p>
                             </div>
-                            <div class="column-inside-information">
+                            <div class="content-info-header-field">
                                 <p class="title-main-boarding">Security No.</p>
                                 <p class="subtitle-main-boarding">{{.SecurityNumber}}</p>
                             </div>
                         </div>
-                        <hr class="hr-body" />
                         <div class="content-inside-information">
                             <div class="column-inside-information">
                                 <div class="second-content-inside-information">
@@ -731,15 +613,16 @@ var (
                         </div>
                     </div>
                 </div>
-            </div>
+            <!-- </div> -->
         </div>
 
 
         <!-- TITLE PRESENT BOARDING PASS -->
         <div class="content-title-boarding">
             <div class="border-gray-title"></div>
-            <p class="title-boarding">Please present this boarding pass to the airport for flight</p>
-            <div class="border-gray-title"></div>
+            <div class="title-boarding">Please present this boarding pass to the airport for flight</div>
+            <!-- <h3>Please present this boarding pass to the airport for flight</h3> -->
+            <!-- <div class="border-gray-title"></div> -->
         </div>
 
         <!-- LINE ONE -->
@@ -750,16 +633,11 @@ var (
                         <img src="https://storage.googleapis.com/cabeen-dev/rectangle_one.svg" style="position: absolute;width: 22%;">
                         <p class="title-boarding-card">Check-in with luggage</p>
                     </div>
-                    <div class="content-card-travel">
-                        <div class="row-content-travel">
-                            <img src="https://storage.googleapis.com/cabeen-dev/travel_one.svg" class="icon-boarding">
-                            <div class="gap-desc-travel-one"></div>
-                            <div class="column-desc-boarding">
-                                <p class="desc-travel">Please head to the check-in counter no later than 60 minutes
-                                    before
-                                    departure</p>
-                            </div>
-                        </div>
+                    <div class="row-content-travel">
+                        <img src="https://storage.googleapis.com/cabeen-dev/travel_one.svg" class="icon-boarding">
+                        <p class="column-desc-boarding">
+                            Please head to the check-in counter no later than 60 minutes before departure
+                        </p>
                     </div>
                 </div>
                 <div class="card-boarding-two">
@@ -770,32 +648,17 @@ var (
                     <div class="content-card-travel">
                         <div class="row-content-travel">
                             <img src="https://storage.googleapis.com/cabeen-dev/safety.svg" class="icon-boarding">
-                            <div class="gap-desc-travel-one"></div>
-                            <div class="column-desc-boarding">
-                                <div class="content-point">
-                                    <div class="ellipse-point">
-                                    </div>
-                                    <p class="desc-travel">Make sure your items always stay with you </p>
-                                </div>
-                                <div class="content-point">
-                                    <div class="ellipse-point "></div>
-                                    <p class="desc-travel">Make sure you know the contents of your luggage</p>
-                                </div>
-                                <div class="content-point">
-                                    <div class="ellipse-point">
-                                    </div>
-                                    <p class="desc-travel">Pay attention to items that are not allowed to be carried
-                                    </p>
-                                </div>
-                            </div>
+                            <ul>
+                                <li>Make sure your items always stay with you</li>
+                                <li>Make sure you know the contents of your luggage</li>
+                                <li>Pay attention to items that are not allowed to be carried</li>
+                            </ul>
                         </div>
                     </div>
                     <br>
-                    <p class="understand-text">Make sure you understand, know and agree to the applicable
-                        security rules</p>
+                    <p class="understand-text">Make sure you understand, know and agree to the applicable security rules</p>
                 </div>
             </div>
-            <div class="gap-column"></div>
             <div class="column-card-boarding">
                 <div class="card-boarding-three">
                     <div class="rectangle-three">
@@ -805,36 +668,21 @@ var (
                     <div class="content-card-travel">
                         <div class="row-content-travel">
                             <img src="https://storage.googleapis.com/cabeen-dev/backpack.png" class="icon-boarding">
-                            <div class="gap-desc-travel-one"></div>
-                            <div class="second-column-desc-boarding">
-                                <div class="content-point">
-                                    <div class="ellipse-point">
-                                    </div>
-                                    <p class="desc-travel">Domestic destination - please head to the departure gate
-                                    </p>
-                                </div>
-                                <div class="content-point">
-                                    <div class="ellipse-point">
-                                    </div>
-                                    <p class="desc-travel">International destinations - please go to the check-in
-                                        counter for verification of travel documents</p>
-                                </div>
-                            </div>
+                            <ul>
+                                <li>Domestic destination - please head to the departure gate</li>
+                                <li>International destinations - please go to the check-in counter for verification of travel documents</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="rectangle-four">
-                        <img src="https://storage.googleapis.com/cabeen-dev/rectangle_one.svg" style="position: absolute;width: 22%;">
+                        <img src="https://storage.googleapis.com/cabeen-dev/rectangle_one.svg" style="position: absolute;float: left;width: 22%;">
                         <p class="title-boarding-card">Size of carry-on bag</p>
                     </div>
                     <div class="content-backpack">
-                        <img src="https://storage.googleapis.com/cabeen-dev/group_backpack.png" class="group-backpack">
+                        <img src="https://storage.googleapis.com/cabeen-dev/group_backpack.png">
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- LINE TWO -->
-        <div class="row-second">
             <div class="column-card-boarding-four">
                 <div class="card-boarding-four">
                     <div class="rectangle-five">
@@ -843,50 +691,17 @@ var (
                     </div>
                     <div class="content-card-travel">
                         <div class="row-content-travel">
-                            <div class="third-column-desc-boarding">
-                                <div class="content-point">
-                                    <div class="ellipse-point-second">
-                                    </div>
-                                    <p class="desc-travel">Make sure your travel documents are still valid</p>
-                                </div>
-                                <div class="content-point">
-                                    <div class="ellipse-point-second">
-                                    </div>
-                                    <p class="desc-travel">Allowance for baggage as stipulated in your E-Ticket
-                                        regulations</p>
-                                </div>
-                                <div class="content-point">
-                                    <div class="ellipse-point-second">
-                                    </div>
-                                    <p class="desc-travel">Receiving boarding passes is at the discretion of the
-                                        airport
-                                    </p>
-                                </div>
-                                <div class="content-point">
-                                    <div class="ellipse-point-second">
-                                    </div>
-                                    <p class="desc-travel">For operational, safety or security reasons we can change
-                                        our
-                                        seats at any time even after you board the aircraft
-                                    </p>
-                                </div>
-                                <div class="content-point">
-                                    <img src="https://storage.googleapis.com/cabeen-dev/ellipse_point.svg" class="ellipse-point-second">
-                                    <p class="desc-travel">You are expected to be at the Boarding Gate no later than
-                                        40
-                                        minutes before departure time to avoid being offroad from the aircraft
-                                        and
-                                        from
-                                        being charged a no-show fee
-                                    </p>
-                                </div>
-                            </div>
+                            <ul>
+                                <li>Make sure your travel documents are still valid</li>
+                                <li>Allowance for baggage as stipulated in your E-Ticket regulations</li>
+                                <li>Receiving boarding passes is at the discretion of the airport</li>
+                                <li>For operational, safety or security reasons we can change our seats at any time even after you board the aircraft</li>
+                                <li>You are expected to be at the Boarding Gate no later than 40 minutes before departure time to avoid being offroad from the aircraft and from being charged a no-show fee</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="gap-inside"></div>
                 </div>
             </div>
-            <div class="gap-column"></div>
             <div class="column-card-boarding-five">
                 <div class="card-boarding-five">
                     <div class="content-stamp-here">
@@ -898,22 +713,18 @@ var (
         </div>
 
         <div class="bg-thanks">
-            <p class="thanks-choosing">Thank you for choosing to fly with Lion Air</p>
+            <h2>Thank you for choosing to fly with Lion Air</h2>
         </div>
         
         <div class="footer-boarding">
-            <div class="content-footer-boarding">
                 <img src="https://storage.googleapis.com/cabeen-dev/icon_cabeen.png" class="icon-cabeen-boarding">
                 <div class="content-download-footer">
                     <p class="download-cabeen-text">Download Cabeen Apps</p>
                     <div class="content-store">
-                        <img src="https://storage.googleapis.com/cabeen-dev/playstore.png" onclick="location.href='https://play.google.com/store'"
-                            class="playstore">
-                        <img src="https://storage.googleapis.com/cabeen-dev/appstore.png" onclick="location.href='https://apps.apple.com/'"
-                            class="appstore">
+                        <img src="https://storage.googleapis.com/cabeen-dev/playstore.png" onclick="location.href='https://play.google.com/store'">
+                        <img src="https://storage.googleapis.com/cabeen-dev/appstore.png" onclick="location.href='https://apps.apple.com/'">
                     </div>
                 </div>
-            </div>
         </div>
 </body>
 </html>
