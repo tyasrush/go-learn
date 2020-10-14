@@ -1,0 +1,85 @@
+{
+    "formatVersion" : 1,
+    "passTypeIdentifier" : "pass.com.lion.cabeen.app-dev",
+    "serialNumber" : "WIUWIUWIU",
+    "teamIdentifier" : "VP6836B622",
+    "webServiceURL" : "https://lionparcel.com",
+    "authenticationToken" : "vxwxd7J8AlNNFPS8k0a0FfUFtq0ewzFdc",
+    "relevantDate" : "2020-07-29T00:00-24:00",
+    "locations" : [
+        {
+            "longitude" : -122.3748889,
+            "latitude" : 37.6189722
+        }
+    ],
+    "barcode" : {
+        "message" : "M1ERWINDO/SIANIPAR EDUXBTX CGKKNOID 7368 070Y025F0058 100",
+        "format" : "PKBarcodeFormatAztec",
+        "messageEncoding" : "iso-8859-1"
+    },
+    "organizationName" : "Cabeen",
+    "description" : "Cabeen Passenger Boarding Pass",
+    "logoText" : "",
+    "foregroundColor" : "rgb(87, 87, 87)",
+    "backgroundColor" : "rgb(255, 255, 255)",
+    "boardingPass" : {
+        "transitType" : "PKTransitTypeAir",
+        "headerFields" : [
+            {
+                "label" : "Flight Number",
+                "key" : "flight",
+                "value" : "ID-123",
+                "changeMessage" : "Flight number changed to %@."
+            }
+        ],
+        "primaryFields" : [
+            {
+                "key" : "depart",
+                "label" : "Jakarta",
+                "value" : "CGK"
+            },
+            {
+                "key" : "arrive",
+                "label" : "Medan",
+                "value" : "KNO"
+            }
+        ],
+        "auxiliaryFields" : [
+            {
+                "key" : "departureDate",
+                "label" : "Date",
+                "value" :  "29 July 2020",
+                "changeMessage" : "Departure date changed to %@."
+            },
+            {
+                "key" : "boardingTime",
+                "label" : "Boarding Time",
+                "value" : "10:50 AM",
+                "changeMessage" : "Boarding time changed to %@"
+            },
+            {
+                "key" : "gate",
+                "label" : "Gate",
+                "value" : "2E"
+            },
+            {
+                "key" : "seat",
+                "label" : "Seat",
+                "value" :  "22A",
+            }
+        ],
+        "secondaryFields" : [
+            {
+                "key" : "passengerName",
+                "label" : "Passenger Name",
+                "value" : "Erwindo Sianipar"
+            },
+            {
+                "key" : "class",
+                "label" : "Class",
+                "value" : "Bussiness"
+            }
+        ],
+        "backFields" : []
+    }
+}
