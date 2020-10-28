@@ -348,36 +348,16 @@ func CreatePDF() {
 		fmt.Errorf("error close file template")
 	}
 
-	// rdr, err := os.Open("/Users/lion/Downloads/output.png")
-	// if err != nil {
-	// 	fmt.Errorf("error close file template")
-	// }
-
-	// img, _, err := image.DecodeConfig(rdr)
-	// if err != nil {
-	// 	fmt.Errorf("error close file template")
-	// }
-
 	pdf := gofpdf.New("P", "mm", "Legal", "")
 	pdf.AddPage()
 	pdf.ImageOptions("/Users/lion/Downloads/output.png", float64(10), float64(10), 200, 0, false, gofpdf.ImageOptions{ReadDpi: false, ImageType: ""}, 0, "")
 
-	// Set size image
-	// pdf.Image(tempFileLocation, 10, 20, 190, 0, false, "", 0, "")
-
-	// Generate file to PDF
-	// var buf io.Writer
 	err = pdf.OutputFileAndClose("/Users/lion/Downloads/output.pdf")
 	if err != nil {
 		fmt.Errorf("error close file template")
 	}
 
 	ExampleNewPDFGenerator()
-
-	// err = CreatePDF417Barcode("testing hahaha", true)
-	// if err != nil {
-	// 	log.Fatal(fmt.Errorf("error %v", err))
-	// }
 }
 
 func ExampleNewPDFGenerator() {
@@ -410,7 +390,6 @@ func ExampleNewPDFGenerator() {
 	}
 
 	// Write buffer contents to file on disk
-	// err = pdfg.WriteFile("./simplesample.pdf")
 	err = pdfg.WriteFile("./flight_overnight.pdf")
 	if err != nil {
 		log.Fatal(err)
@@ -558,19 +537,6 @@ func CreateFlightHTMLToPDF(p html.FlightEntityHTML) error {
 	pdfg.PageSize.Set(wkhtmltopdf.PageSizeA4)
 
 	if len(bs) > 1 {
-		// for _, el := range bs {
-		// 	if el != nil {
-		// 		fmt.Printf("string bytes - %s\n", string(el.Bytes()))
-		// 		page := wkhtmltopdf.NewPageReader(strings.NewReader(string(bs[0].Bytes())))
-
-		// 		// Set options for this page
-		// 		page.FooterRight.Set("[page]")
-		// 		page.FooterFontSize.Set(10)
-
-		// 		// Add to document
-		// 		pdfg.AddPage(page)
-		// 	}
-		// }
 
 		files := []*os.File{}
 		for _, el := range bs {
