@@ -161,35 +161,36 @@ func main() {
 	// 			ArrivedAirportCity:       "Surabaya",
 	// 			TransitCityName:          "Bandung",
 	// 			TransitDurationTime:      "1h",
+	// 			IsOvernight:              true,
 	// 		},
-	// 		html.FlightScheduleEntityHTML{
-	// 			DepartureTime:            "09:00",
-	// 			DepartureAirportName:     "Soekarno-Hatta International Airport",
-	// 			DepartureAirportIATA:     "CGK",
-	// 			DepartureAirportTerminal: "Terminal 1A",
-	// 			DepartureAirportCity:     "Jakarta",
-	// 			ArrivedTime:              "10:00",
-	// 			ArrivedAirportName:       "Juanda International Airport",
-	// 			ArrivedAirportIATA:       "SUB",
-	// 			ArrivedAirportTerminal:   "Terminal 2A",
-	// 			ArrivedAirportCity:       "Surabaya",
-	// 			TransitCityName:          "Bandung",
-	// 			TransitDurationTime:      "1h",
-	// 		},
-	// 		html.FlightScheduleEntityHTML{
-	// 			DepartureTime:            "09:00",
-	// 			DepartureAirportName:     "Soekarno-Hatta International Airport",
-	// 			DepartureAirportIATA:     "CGK",
-	// 			DepartureAirportTerminal: "Terminal 1A",
-	// 			DepartureAirportCity:     "Jakarta",
-	// 			ArrivedTime:              "10:00",
-	// 			ArrivedAirportName:       "Juanda International Airport",
-	// 			ArrivedAirportIATA:       "SUB",
-	// 			ArrivedAirportTerminal:   "Terminal 2A",
-	// 			ArrivedAirportCity:       "Surabaya",
-	// 			TransitCityName:          "Bandung",
-	// 			TransitDurationTime:      "1h",
-	// 		},
+	// 		// html.FlightScheduleEntityHTML{
+	// 		// 	DepartureTime:            "09:00",
+	// 		// 	DepartureAirportName:     "Soekarno-Hatta International Airport",
+	// 		// 	DepartureAirportIATA:     "CGK",
+	// 		// 	DepartureAirportTerminal: "Terminal 1A",
+	// 		// 	DepartureAirportCity:     "Jakarta",
+	// 		// 	ArrivedTime:              "10:00",
+	// 		// 	ArrivedAirportName:       "Juanda International Airport",
+	// 		// 	ArrivedAirportIATA:       "SUB",
+	// 		// 	ArrivedAirportTerminal:   "Terminal 2A",
+	// 		// 	ArrivedAirportCity:       "Surabaya",
+	// 		// 	TransitCityName:          "Bandung",
+	// 		// 	TransitDurationTime:      "1h",
+	// 		// },
+	// 		// html.FlightScheduleEntityHTML{
+	// 		// 	DepartureTime:            "09:00",
+	// 		// 	DepartureAirportName:     "Soekarno-Hatta International Airport",
+	// 		// 	DepartureAirportIATA:     "CGK",
+	// 		// 	DepartureAirportTerminal: "Terminal 1A",
+	// 		// 	DepartureAirportCity:     "Jakarta",
+	// 		// 	ArrivedTime:              "10:00",
+	// 		// 	ArrivedAirportName:       "Juanda International Airport",
+	// 		// 	ArrivedAirportIATA:       "SUB",
+	// 		// 	ArrivedAirportTerminal:   "Terminal 2A",
+	// 		// 	ArrivedAirportCity:       "Surabaya",
+	// 		// 	TransitCityName:          "Bandung",
+	// 		// 	TransitDurationTime:      "1h",
+	// 		// },
 	// 		// html.FlightScheduleEntityHTML{
 	// 		// 	DepartureTime:            "09:00",
 	// 		// 	DepartureAirportName:     "Soekarno-Hatta International Airport",
@@ -221,21 +222,21 @@ func main() {
 	// 			Type:    "Infant",
 	// 			Baggage: 0,
 	// 		},
-	// 		html.PassengerEntityHTML{
-	// 			Name:    "Paijo",
-	// 			Type:    "Adult",
-	// 			Baggage: 0,
-	// 		},
-	// 		html.PassengerEntityHTML{
-	// 			Name:    "Paiji",
-	// 			Type:    "Infant",
-	// 			Baggage: 0,
-	// 		},
-	// 		html.PassengerEntityHTML{
-	// 			Name:    "Paiji",
-	// 			Type:    "Infant",
-	// 			Baggage: 0,
-	// 		},
+	// 		// html.PassengerEntityHTML{
+	// 		// 	Name:    "Paijo",
+	// 		// 	Type:    "Adult",
+	// 		// 	Baggage: 0,
+	// 		// },
+	// 		// html.PassengerEntityHTML{
+	// 		// 	Name:    "Paiji",
+	// 		// 	Type:    "Infant",
+	// 		// 	Baggage: 0,
+	// 		// },
+	// 		// html.PassengerEntityHTML{
+	// 		// 	Name:    "Paiji",
+	// 		// 	Type:    "Infant",
+	// 		// 	Baggage: 0,
+	// 		// },
 	// 	},
 	// })
 	// if err != nil {
@@ -243,66 +244,88 @@ func main() {
 	// }
 
 	// ExampleNewPDFGenerator()
-	if err := CreateFlightOvernightHTMLToPDF(html.ReceiptEntityHTML{
-		BookID:       "12345888",
-		CreatedAt:    "Wednesday, 13 Oct 2020, 09:18",
-		AdminFee:     0,
-		Total:        948000,
-		TotalPayment: 948000,
-		Customer: struct {
-			Name  string
-			Email string
-			Phone string
-		}{
-			Name:  "Putri Tanjung",
-			Email: "putri@gmail.com",
-			Phone: "+6278787878787",
-		},
-		Payment: struct {
-			Method string
-			Status string
-		}{
-			Method: "Bank Transfer",
-			Status: "PAID",
-		},
-		Passengers: []html.PassengerEntityHTML{
-			html.PassengerEntityHTML{
-				Name: "Ms. Putri Tanjung",
-				Type: "Adult",
-			},
-			html.PassengerEntityHTML{
-				Name: "Ms. Fany Desriyanti",
-				Type: "Adult",
-			},
-			html.PassengerEntityHTML{
-				Name: "Ms. Fany Desriyanti",
-				Type: "Adult",
-			},
-			html.PassengerEntityHTML{
-				Name: "Ms. Fany Desriyanti",
-				Type: "Adult",
-			},
-			html.PassengerEntityHTML{
-				Name: "Ms. Fany Desriyanti",
-				Type: "Adult",
-			},
-		},
-		Items: []html.ReceiptItemEntity{
-			html.ReceiptItemEntity{
-				Type:       "Flight Ticket",
-				Desc:       "Lion Air (Adult), CGK - SUB, Jul 20, 2020",
-				Qty:        3,
-				Price:      400000,
-				TotalPrice: 1200000,
-			},
-			html.ReceiptItemEntity{
-				Type:       "Flight Ticket",
-				Desc:       "Lion Air (Adult), CGK - SUB, Jul 20, 2020",
-				Qty:        3,
-				Price:      400000,
-				TotalPrice: 1200000,
-			},
-		},
+	// if err := CreateFlightOvernightHTMLToPDF(html.ReceiptEntityHTML{
+	// 	BookID:       "12345888",
+	// 	CreatedAt:    "Wednesday, 13 Oct 2020, 09:18",
+	// 	AdminFee:     0,
+	// 	Total:        948000,
+	// 	TotalPayment: 948000,
+	// 	Customer: struct {
+	// 		Name  string
+	// 		Email string
+	// 		Phone string
+	// 	}{
+	// 		Name:  "Putri Tanjung",
+	// 		Email: "putri@gmail.com",
+	// 		Phone: "+6278787878787",
+	// 	},
+	// 	Payment: struct {
+	// 		Method string
+	// 		Status string
+	// 	}{
+	// 		Method: "Bank Transfer",
+	// 		Status: "PAID",
+	// 	},
+	// 	Passengers: []html.PassengerEntityHTML{
+	// 		html.PassengerEntityHTML{
+	// 			Name: "Ms. Putri Tanjung",
+	// 			Type: "Adult",
+	// 		},
+	// 		html.PassengerEntityHTML{
+	// 			Name: "Ms. Fany Desriyanti",
+	// 			Type: "Adult",
+	// 		},
+	// 		html.PassengerEntityHTML{
+	// 			Name: "Ms. Fany Desriyanti",
+	// 			Type: "Adult",
+	// 		},
+	// 		html.PassengerEntityHTML{
+	// 			Name: "Ms. Fany Desriyanti",
+	// 			Type: "Adult",
+	// 		},
+	// 		html.PassengerEntityHTML{
+	// 			Name: "Ms. Fany Desriyanti",
+	// 			Type: "Adult",
+	// 		},
+	// 	},
+	// 	Items: []html.ReceiptItemEntity{
+	// 		html.ReceiptItemEntity{
+	// 			Type:       "Flight Ticket",
+	// 			Desc:       "Lion Air (Adult), CGK - SUB, Jul 20, 2020",
+	// 			Qty:        3,
+	// 			Price:      400000,
+	// 			TotalPrice: 1200000,
+	// 		},
+	// 		html.ReceiptItemEntity{
+	// 			Type:       "Flight Ticket",
+	// 			Desc:       "Lion Air (Adult), CGK - SUB, Jul 20, 2020",
+	// 			Qty:        3,
+	// 			Price:      400000,
+	// 			TotalPrice: 1200000,
+	// 		},
+	// 	},
+	// }); err != nil {
+	// 	fmt.Println("error - ", err)
+	// }
+
+	if err := CreateBoardingPassHTMLToPDF(html.BoardingPassHTMLEntity{
+		FullName:            "Yoshikawa/Aimi MS",
+		FFNumber:            "123921830291082",
+		SecurityNumber:      "i83219083921830",
+		OriginCity:          "Jakarta",
+		DestinationCity:     "Bali",
+		FlightSSR:           "SSR",
+		FlightNumber:        "JT-AIME",
+		DepartureDate:       "29 Sep",
+		DepartureTime:       "05.00",
+		OriginTerminal:      "CGK",
+		DestinationTerminal: "DPS",
+		FlightClass:         "S",
+		FlightPNR:           "AIMIYOS",
+		Seat:                "1A",
+		ETicketNumber:       "USAIR",
+		BarcodeLandscape:    "https://storage.googleapis.com/cabeen-dev/barcode-standar/barcode-btoqiurd0cvrnidok9qg.png",
+		BarcodeRotate:       "https://storage.googleapis.com/cabeen-dev/barcode-rotate/barcode-btoqiv3d0cvrnidok9rg.png",
 	}); err != nil {
 		fmt.Println("error - ", err)
 	}
@@ -591,7 +614,7 @@ func CreateFlightHTMLToPDF(p html.FlightEntityHTML) error {
 	}
 
 	// Write buffer contents to file on disk
-	err = pdfg.WriteFile("./flight.pdf")
+	err = pdfg.WriteFile("./flight_overnight.pdf")
 	if err != nil {
 		return err
 	}
@@ -648,6 +671,61 @@ func CreateFlightOvernightHTMLToPDF(p html.ReceiptEntityHTML) error {
 
 	// Write buffer contents to file on disk
 	err = pdfg.WriteFile("./flight_receipt.pdf")
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func CreateBoardingPassHTMLToPDF(p html.BoardingPassHTMLEntity) error {
+	var flightTemplateFunc = template.FuncMap{
+		"last": func(x int, a interface{}) bool {
+			return x == reflect.ValueOf(a).Len()-1
+		},
+		"add": func(x int, add int) int {
+			return x + add
+		},
+		"now": time.Now,
+	}
+
+	tpl, err := template.New("boarding_pass_html").Funcs(flightTemplateFunc).Parse(html.BoardingPassHTML)
+	if err != nil {
+		return err
+	}
+
+	b := &bytes.Buffer{}
+	err = tpl.Execute(b, p)
+	if err != nil {
+		return err
+	}
+
+	pdfg, err := wkhtmltopdf.NewPDFGenerator()
+	if err != nil {
+		return err
+	}
+
+	// Set global options
+	pdfg.Dpi.Set(300)
+	pdfg.Orientation.Set(wkhtmltopdf.OrientationPortrait)
+	pdfg.PageSize.Set(wkhtmltopdf.PageSizeA4)
+
+	page := wkhtmltopdf.NewPageReader(strings.NewReader(string(b.Bytes())))
+
+	// Set options for this page
+	page.FooterRight.Set("[page]")
+	page.FooterFontSize.Set(10)
+	// page.Zoom.Set(0.95)
+
+	// Add to document
+	pdfg.AddPage(page)
+
+	err = pdfg.Create()
+	if err != nil {
+		return err
+	}
+
+	// Write buffer contents to file on disk
+	err = pdfg.WriteFile("./boarding_pass.pdf")
 	if err != nil {
 		return err
 	}

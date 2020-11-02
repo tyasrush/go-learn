@@ -87,18 +87,20 @@ var (
             }
 
             #column-information-boarding {
+                width: 74%;
                 display: inline;
                 float: left;
             }
 
             .card-bp-body {
-                min-width: 70%;
+                min-width: 90%;
                 max-width: 100%;
                 float: left;
                 margin: 1% 4% 1% 0;
             }
 
             .content-inside-information {
+                width: 83%;
                 display: inline-block;
             }
 
@@ -122,8 +124,9 @@ var (
 
             .column-inside-information {
                 float: left;
-                min-width: 33.3%;
-                max-width: 33.3%;
+                width: 33.3%;
+                /* min-width: 33.3%; */
+                /* max-width: 38%; */
             }
 
             .title-main-boarding {
@@ -520,7 +523,7 @@ var (
 
             .content-download-footer {
                 float: left;
-                margin: 0 6% 0 47%;
+                margin: 0 6% 0 45%;
             }
 
             .content-store img {
@@ -534,11 +537,11 @@ var (
             <div class="card-bp">
                     <div class="card-bp-header">
                         <img src="https://storage.googleapis.com/cabeen-dev/icon_lion.svg" class="icon-lion">
-                        <img src="https://storage.googleapis.com/cabeen-dev/barcode-standar/barcode-btoqiurd0cvrnidok9qg.png" class="icon-barcode">
+                        <img src="{{.BarcodeLandscape}}" class="icon-barcode">
                     </div>
                     <div class="card-bp-body">
                         <div class="column-barcode">
-                            <img src="https://storage.googleapis.com/cabeen-dev/barcode-rotate/barcode-btoqiv3d0cvrnidok9rg.png" class="icon-body-barcode">
+                            <img src="{{.BarcodeRotate}}" class="icon-body-barcode">
                         </div>
                         <div id="column-information-boarding">
                             <div id="content-info-header">
@@ -595,7 +598,7 @@ var (
                                 <div class="column-inside-information">
                                     <div class="second-content-inside-information">
                                         <div class="column-sub-inside-information">
-                                            <p class="second-title-main-boarding">Departure Date</p>
+                                            <p class="second-title-main-boarding">Date</p>
                                             <p class="second-subtitle-main-boarding">{{.DepartureDate}}</p>
                                             <br>
                                             <p class="second-title-main-boarding">Seat</p>
@@ -717,9 +720,9 @@ var (
             </div>
             
             <div class="footer-boarding">
-                    <img src="https://storage.googleapis.com/cabeen-dev/icon_cabeen.png" class="icon-cabeen-boarding">
+                    <img src="https://storage.googleapis.com/cabeen-dev/icon_footer.svg" class="icon-cabeen-boarding">
                     <div class="content-download-footer">
-                        <p class="download-cabeen-text">Download Cabeen Apps</p>
+                        <p class="download-cabeen-text">Download Flapp Apps</p>
                         <div class="content-store">
                             <img src="https://storage.googleapis.com/cabeen-dev/playstore.png" onclick="location.href='https://play.google.com/store'">
                             <img src="https://storage.googleapis.com/cabeen-dev/appstore.png" onclick="location.href='https://apps.apple.com/'">
@@ -1167,13 +1170,13 @@ var (
                 <div class="bg-banner-cabeen">
                     <img src="https://storage.googleapis.com/cabeen-dev/assets/banner_cabeen.png">
                     <div class="content-logo-cabeen">
-                        <img src="https://storage.googleapis.com/cabeen-dev/assets/second_logo_cabeen.svg">
+                        <img src="https://storage.googleapis.com/cabeen-dev/icon_header.svg">
                         <p>E-ticket</p>
                     </div>
                 </div>
                 <div class="bg-booking-code">
                     <p>Airlane Booking Code (PNR)</p>
-                    <p>Cabeen Booking ID <span><b>{{.BookID}}</b></span></p> 
+                    <p>Flapp Booking ID <span><b>{{.BookID}}</b></span></p> 
                     <p>{{.PNR}}</p>
                 </div>
                 <div class="content-head-eticket">
@@ -1269,7 +1272,7 @@ var (
 
             <div class="footer-boarding">
                 <div>
-                    <p>Download Cabeen Apps</p>
+                    <p>Download Flapp Apps</p>
                     <img src="https://storage.googleapis.com/cabeen-dev/assets/playstore.png"
                         onclick="location.href='https://play.google.com/store'">
                     <img src="https://storage.googleapis.com/cabeen-dev/assets/appstore.png"
@@ -1277,9 +1280,9 @@ var (
                 </div>
                 <div>
                     <div>
-                        <img src="https://storage.googleapis.com/cabeen-dev/assets/icon_cabeen.png">
+                        <img src="https://storage.googleapis.com/cabeen-dev/icon_footer.svg">
                     </div>
-                    <p>{{now.UTC.Year}}, PT Kabin Kita Top</p>
+                    <p>{{now.UTC.Year}}, PT LIONMAS DINAMIKAEXPRESS</p>
                 </div>
             </div>
         </div>
@@ -1717,13 +1720,13 @@ var (
                 <div class="bg-banner-cabeen">
                     <img src="https://storage.googleapis.com/cabeen-dev/assets/banner_cabeen.png">
                     <div class="content-logo-cabeen">
-                        <img src="https://storage.googleapis.com/cabeen-dev/assets/second_logo_cabeen.svg">
+                        <img src="https://storage.googleapis.com/cabeen-dev/icon_header.svg">
                         <p>E-ticket</p>
                     </div>
                 </div>
                 <div class="bg-booking-code">
                     <p>Airlane Booking Code (PNR)</p>
-                    <p>Cabeen Booking ID <span><b>{{.BookID}}</b></span></p> 
+                    <p>Flapp Booking ID <span><b>{{.BookID}}</b></span></p> 
                     <p>{{.PNR}}</p>
                 </div>
 
@@ -1753,7 +1756,7 @@ var (
 
             <div class="footer-boarding">
                 <div>
-                    <p>Download Cabeen Apps</p>
+                    <p>Download Flapp Apps</p>
                     <img src="https://storage.googleapis.com/cabeen-dev/assets/playstore.png"
                         onclick="location.href='https://play.google.com/store'">
                     <img src="https://storage.googleapis.com/cabeen-dev/assets/appstore.png"
@@ -1761,9 +1764,9 @@ var (
                 </div>
                 <div>
                     <div>
-                        <img src="https://storage.googleapis.com/cabeen-dev/assets/icon_cabeen.png">
+                        <img src="https://storage.googleapis.com/cabeen-dev/icon_footer.svg">
                     </div>
-                    <p>{{now.UTC.Year}}, PT Kabin Kita Top</p>
+                    <p>{{now.UTC.Year}}, PT LIONMAS DINAMIKAEXPRESS</p>
                 </div>
             </div>
         </div>
@@ -2187,7 +2190,7 @@ var (
                 <div class="bg-banner-cabeen">
                     <img src="https://storage.googleapis.com/cabeen-dev/assets/banner_cabeen.png">
                     <div class="content-logo-cabeen">
-                        <img src="https://storage.googleapis.com/cabeen-dev/assets/second_logo_cabeen.svg">
+                        <img src="https://storage.googleapis.com/cabeen-dev/icon_header.svg">
                         <p>Receipt</p>
                     </div>
                 </div>
@@ -2275,11 +2278,11 @@ var (
             </div>
 
             <div id="wrap-img-paid">
-                <img src="https://storage.googleapis.com/cabeen-dev/assets/paid.svg">
+                <img src="https://storage.googleapis.com/cabeen-dev/paid_flapp.svg">
             </div>
             <div class="footer-boarding">
                 <div>
-                    <p>Download Cabeen Apps</p>
+                    <p>Download Flapp Apps</p>
                     <img src="https://storage.googleapis.com/cabeen-dev/assets/playstore.png"
                         onclick="location.href='https://play.google.com/store'">
                     <img src="https://storage.googleapis.com/cabeen-dev/assets/appstore.png"
@@ -2287,9 +2290,9 @@ var (
                 </div>
                 <div>
                     <div>
-                        <img src="https://storage.googleapis.com/cabeen-dev/assets/icon_cabeen.png">
+                        <img src="https://storage.googleapis.com/cabeen-dev/icon_footer.svg">
                     </div>
-                    <p>{{now.UTC.Year}}, PT Kabin Kita Top</p>
+                    <p>{{now.UTC.Year}}, PT LIONMAS DINAMIKAEXPRESS</p>
                 </div>
             </div>
         </div>

@@ -70,3 +70,23 @@ type ReceiptItemEntity struct {
 	Price      int
 	TotalPrice int
 }
+
+type BoardingPassHTMLEntity struct {
+	FullName            string
+	FFNumber            string
+	SecurityNumber      string
+	OriginCity          string
+	DestinationCity     string
+	FlightSSR           string
+	FlightNumber        string
+	DepartureDate       string
+	DepartureTime       string
+	OriginTerminal      string
+	DestinationTerminal string
+	FlightClass         string
+	FlightPNR           string
+	Seat                string
+	ETicketNumber       string
+	BarcodeLandscape    string
+	BarcodeRotate       string
+}
