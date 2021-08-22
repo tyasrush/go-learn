@@ -89,13 +89,13 @@ func BuildSelectParamQuery(t interface{}) (int, []interface{}, string, error) {
 				switch typ := val.(type) {
 				case string:
 					if len(strings.TrimSpace(typ)) > 0 {
-						valuesQuery += fmt.Sprintf(` "%s" = $%d AND`, dbVal, idx+1)
+						valuesQuery += fmt.Sprintf(` AND "%s" = $%d `, dbVal, idx+1)
 						valuesParam = append(valuesParam, typ)
 						idx++
 					}
 				case int64:
 					if typ > 0 {
-						valuesQuery += fmt.Sprintf(` "%s"=%d AND`, dbVal, idx+1)
+						valuesQuery += fmt.Sprintf(` AND "%s"=%d `, dbVal, idx+1)
 						valuesParam = append(valuesParam, typ)
 						idx++
 					}
@@ -105,6 +105,5 @@ func BuildSelectParamQuery(t interface{}) (int, []interface{}, string, error) {
 	}
 
 	idx++
-	valuesQuery = valuesQuery[0 : len(valuesQuery)-3]
 	return idx, valuesParam, valuesQuery, nil
 }
