@@ -33,6 +33,7 @@ import (
 
 	"github.com/jung-kurt/gofpdf"
 	"github.com/rs/zerolog"
+	"github.com/tyasrush/go-learn/config"
 	"github.com/tyasrush/go-learn/helper/html"
 	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
 )
@@ -381,6 +382,9 @@ func CreatePDF() {
 	}
 
 	ExampleNewPDFGenerator()
+
+	testCfg := config.GetPgConfig("config.yaml")
+	fmt.Println(testCfg)
 }
 
 func ExampleNewPDFGenerator() {
