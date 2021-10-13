@@ -1,11 +1,14 @@
 package main
 
 import (
+	"context"
+	"errors"
 	"fmt"
 	"log"
 	"os"
 	"runtime"
 	"strconv"
+	"sync"
 	"time"
 
 	"encoding/json"
@@ -306,12 +309,12 @@ func main() {
 	// 				min_base_amount_increment=Decimal(step_size),
 	// 				min_notional_size=Decimal(min_notional)))
 
-	binanceBytesTradingRules, err := json.Marshal(binanceTradingRules)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println("json marshal - ", eir)
-	fmt.Println("trade rules - ", string(binanceBytesTradingRules))
+	// binanceBytesTradingRules, err := json.Marshal(binanceTradingRules)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	// fmt.Println("json marshal - ", eir)
+	// fmt.Println("trade rules - ", string(binanceBytesTradingRules))
 
 	iddxTickerResp := `{
   "ticker": {
@@ -335,6 +338,67 @@ func main() {
 		fmt.Println(err)
 	}
 
-	fmt.Println("response - ", iddxResp)
+	// fmt.Println("response - ", iddxResp)
 
+	var (
+		msgChan    = make(chan string)
+		errorChan  = make(chan error)
+		intCursor  = 0
+		syncG      sync.WaitGroup
+		errorRetry = make(chan int, 1)
+		retryCount = 0
+	)
+
+	ctx, cancel := context.WithCancel(context.Background())
+
+	TestGoFunc(intCursor, msgChan, errorChan)
+
+	syncG.Add(1)
+	go func() {
+		fmt.Println("goroutine executed - ", time.Now().String())
+		defer syncG.Done()
+		for {
+			select {
+			case errretry := <-errorRetry:
+				if errretry == 2 {
+					cancel()
+					return
+				}
+			case <-ctx.Done():
+				fmt.Println("context done")
+				syncG.Done()
+				return
+			case errMsg := <-errorChan:
+				fmt.Println("error: ", errMsg)
+				// syncG.Done()
+				intCursor = 0
+				retryCount++
+				errorRetry <- retryCount
+				time.Sleep(2 * time.Second)
+				errorChan = make(chan error)
+				// syncG.Done()
+				// syncG.Add(1)
+				TestGoFunc(intCursor, msgChan, errorChan)
+				// return
+			case msg := <-msgChan:
+				fmt.Println("message: ", msg)
+			}
+		}
+	}()
+
+	syncG.Wait()
+}
+
+func TestGoFunc(ic int, msgChan chan<- string, errMsg chan<- error) {
+	go func() {
+		for {
+			if ic <= 2 {
+				ic++
+				msgChan <- fmt.Sprintf("nah kan, message ke - %d time - %s", ic, time.Now().String())
+				time.Sleep(3 * time.Second)
+			} else {
+				errMsg <- errors.New("udah abis gaes")
+			}
+		}
+	}()
 }
