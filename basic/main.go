@@ -8,10 +8,13 @@ import (
 	"os"
 	"runtime"
 	"strconv"
+	"strings"
 	"sync"
 	"time"
 
 	"encoding/json"
+
+	"github.com/shopspring/decimal"
 )
 
 type BinanceExchangeInfo struct {
@@ -382,6 +385,22 @@ func main() {
 				// return
 			case msg := <-msgChan:
 				fmt.Println("message: ", msg)
+				testingStringArr := []string{"str1", "str2"}
+				fmt.Println("testing join without anything : ", strings.Join(testingStringArr, ""))
+
+				testDecimalDiv := decimal.NewFromInt(8).Div(decimal.NewFromInt(2)).Div(decimal.NewFromInt(4))
+				floatVal, err := testDecimalDiv.Value()
+				if err != nil {
+					log.Fatalf("error nih - %v\n", err)
+				}
+
+				strVal, err := decimal.NewFromString("1e-8")
+				if err != nil {
+					log.Fatalf("error inihhh - %v \n", strVal)
+				}
+
+				fmt.Printf("harusnya hasilnya 1 dong - %v\n", floatVal)
+				fmt.Printf("decimal value from string %v\n", strVal)
 			}
 		}
 	}()

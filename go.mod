@@ -17,6 +17,7 @@ require (
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/philhofer/fwd v1.0.0 // indirect
 	github.com/rs/zerolog v1.20.0
+	github.com/shopspring/decimal v1.2.0 // indirect
 	github.com/sirupsen/logrus v1.6.0
 	github.com/spf13/viper v1.7.1
 	github.com/syumai/printpdf v0.0.0-20190214163253-7929cb870d72 // indirect
