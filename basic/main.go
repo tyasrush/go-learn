@@ -68,6 +68,8 @@ func main() {
 
 	fmt.Printf("pc - %v file - %s line - %d\n", pc, file, line)
 
+	fmt.Printf("epoch time - %v\n", (time.Now().Unix()+1)*1000)
+
 	stringJSON := `
 	{
   "timezone": "UTC",
