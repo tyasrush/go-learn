@@ -1,0 +1,14 @@
+db:
+  postgres:
+    master:
+      host: localhost 
+      port: 5432
+      user: postgres
+      pwd: postgres
+      db: trolly
+    slave:
+      host: localhost 
+      port: 5432
+      user: postgres
+      pwd: postgres
+      db: trolly
