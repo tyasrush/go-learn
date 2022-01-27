@@ -8,6 +8,7 @@ require (
 	github.com/boombuler/barcode v1.0.0
 	github.com/chromedp/cdproto v0.0.0-20200709115526-d1f6fc58448b
 	github.com/chromedp/chromedp v0.5.3
+	github.com/cockroachdb/apd v1.1.0 // indirect
 	github.com/disintegration/imaging v1.6.2
 	github.com/ericlagergren/decimal v0.0.0-20211103172832-aca2edc11f73 // indirect
 	github.com/gobwas/pool v0.2.1 // indirect
@@ -18,7 +19,7 @@ require (
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/philhofer/fwd v1.0.0 // indirect
 	github.com/rs/zerolog v1.20.0
-	github.com/shopspring/decimal v1.2.0 // indirect
+	github.com/shopspring/decimal v1.3.1 // indirect
 	github.com/sirupsen/logrus v1.6.0
 	github.com/spf13/viper v1.7.1
 	github.com/syumai/printpdf v0.0.0-20190214163253-7929cb870d72 // indirect
