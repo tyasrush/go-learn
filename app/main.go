@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/tyasrush/go-learn/config"
+	"time"
 )
 
 func main() {
-	testCfg := config.GetPgConfig("config.yaml")
-	fmt.Println(testCfg)
+	now := time.Now().UTC()
+	recv := now.Add(-15 * time.Minute)
+	fmt.Printf("now: %v recv: %v \n", now.UnixMicro(), recv.UnixMilli())
 }
