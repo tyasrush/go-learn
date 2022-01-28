@@ -18,6 +18,7 @@ require (
 	github.com/mailru/easyjson v0.7.6 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/philhofer/fwd v1.0.0 // indirect
+	github.com/robaho/fixed v0.0.0-20211205151907-ef6645865188 // indirect
 	github.com/rs/zerolog v1.20.0
 	github.com/shopspring/decimal v1.3.1 // indirect
 	github.com/sirupsen/logrus v1.6.0
