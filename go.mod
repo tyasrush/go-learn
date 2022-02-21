@@ -15,6 +15,7 @@ require (
 	github.com/gobwas/ws v1.0.4 // indirect
 	github.com/google/uuid v1.1.2 // indirect
 	github.com/jung-kurt/gofpdf v1.16.2
+	github.com/lib/pq v1.10.4 // indirect
 	github.com/mailru/easyjson v0.7.6 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/philhofer/fwd v1.0.0 // indirect

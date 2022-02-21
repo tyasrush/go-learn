@@ -1,0 +1,3 @@
+db:
+  driver: postgres
+  dsn: postgres://postgres:postgres@localhost:5432/timeser?sslmode=disable

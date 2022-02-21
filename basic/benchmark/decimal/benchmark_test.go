@@ -2,6 +2,7 @@ package decimal_test
 
 import (
 	"fmt"
+	"math/big"
 	"math/rand"
 	"testing"
 	"time"
@@ -50,6 +51,19 @@ func FixedMulTest() {
 	a.Mul(b)
 }
 
+func BuiltInMulTest() {
+	s1 := rand.NewSource(time.Now().UnixMicro())
+	r1 := rand.New(s1)
+	randVal := r1.Float64() + float64(rand.Int63n(1999888777))
+
+	randVal1 := r1.Float64() * 5
+
+	bval := big.NewFloat(randVal)
+	bval1 := big.NewFloat(randVal1)
+
+	_ = bval.Add(bval, bval1)
+}
+
 func BenchmarkMulShopspring(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		ShopspringMulTest()
@@ -65,5 +79,11 @@ func BenchmarkMulApd(b *testing.B) {
 func BenchmarkMulFixed(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		FixedMulTest()
+	}
+}
+
+func BenchmarkMulBuiltIn(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		BuiltInMulTest()
 	}
 }

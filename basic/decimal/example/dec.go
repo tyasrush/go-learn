@@ -7,6 +7,7 @@ import (
 
 	"github.com/cockroachdb/apd"
 	"github.com/ericlagergren/decimal"
+	"github.com/robaho/fixed"
 )
 
 func TestCalculateDecimal() {
@@ -33,6 +34,12 @@ func TestCalculateDecimal() {
 		panic(err)
 	}
 
-	fmt.Println("parse float built in: ", simpleFloatFromBuiltIn)
+	fl, _ := strconv.ParseFloat("4.940656458412465411112222233333", 64)
+
+	bigFloatTest := big.NewFloat(fl)
+
+	fmt.Printf("parse float built in: %.50f\n", simpleFloatFromBuiltIn)
 	fmt.Printf("parse from apd: %v condition: %v apd bigint: %v result: %v\n", amt, cond, bigint, res)
+	fmt.Printf("fixed test: %v\n", fixed.NewS("4.940656458412465411112222233333").Float())
+	fmt.Printf("big float test: %f\n", bigFloatTest)
 }
