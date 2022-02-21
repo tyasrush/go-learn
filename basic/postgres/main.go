@@ -8,6 +8,7 @@ import (
 	"math/rand"
 	"time"
 
+	"github.com/lib/pq"
 	_ "github.com/lib/pq"
 	"gopkg.in/yaml.v3"
 )
@@ -40,10 +41,15 @@ func main() {
 		panic(err)
 	}
 
-	// ctx, _ := context.WithTimeout(context.Background(), 3*time.Second)
-	ctx := context.Background()
+	// ctx := context.Background()
 
-	insertEvery1Seconds(ctx, sql)
+	if _, err := sql.Exec(fmt.Sprintf(`CREATE MATERIALIZED VIEW %s`, pq.QuoteIdentifier("haloview"))); err != nil {
+		fmt.Println("error exec: ", err)
+	}
+
+	// ctx, _ := context.WithTimeout(context.Background(), 3*time.Second)
+
+	// insertEvery1Seconds(ctx, sql)
 }
 
 func insertEvery1Seconds(ctx context.Context, sql *sql.DB) {
@@ -62,7 +68,7 @@ func insertEvery1Seconds(ctx context.Context, sql *sql.DB) {
 				panic(err)
 			}
 
-			tx.Query("")
+			tx.Query("create table testingaja")
 
 			tx.Commit()
 		}
