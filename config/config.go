@@ -8,6 +8,12 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+type TestingStructLagi struct {
+	TestingName  string
+	TestingName1 string
+	TestingName2 string
+}
+
 type DbConfig struct {
 	Host   string `yaml:"host"`
 	Port   int    `yaml:"port"`

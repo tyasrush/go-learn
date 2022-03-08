@@ -17,6 +17,13 @@ type (
 	Server struct {
 		Port string `yaml:"port"`
 	}
+
+	LogFormat struct {
+		Name  string
+		Tag   string
+		Msg   string
+		ReqID string
+	}
 )
 
 var configFilePath string
