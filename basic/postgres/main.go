@@ -23,6 +23,11 @@ type DbItem struct {
 }
 
 func main() {
+	testCfg := DbItem{
+		Driver: "testing",
+		Name:   "testingname",
+	}
+
 	var dbcfg DbConfig
 
 	yf, err := ioutil.ReadFile("./basic/postgres/config.yaml")
