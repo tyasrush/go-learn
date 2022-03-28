@@ -12,4 +12,9 @@ func main() {
 
 	zeroError := decimal.NewFromFloat(float64(0.1)).Div(decimal.Zero)
 	fmt.Println("zero error : ", zeroError)
+
+	testingString := "lohe lohe"
+	if len(testingString) == 0 {
+		fmt.Println("kosong dong")
+	}
 }
