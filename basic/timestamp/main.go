@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"time"
 )
 
@@ -114,14 +115,24 @@ func main() {
 	// 		fmt.Printf("selisih: %d block: %d\n", v-blocks[i+1], v)
 	// 	}
 	// }
+	timeFormat := "2006-01-02 15:04:05"
 	now := time.Now()
-	currentYear, currentMonth, _ := now.Date()
-	currentLocation := now.Location()
+	nowFormatted := now.Format(timeFormat)
+	nowTimestamp, err := time.Parse(timeFormat, nowFormatted)
+	if err != nil {
+		log.Default().Fatalf("error %v\n", err)
+	}
 
-	firstOfMonth := time.Date(currentYear, currentMonth+3, 0, 0, 0, 0, 0, currentLocation).Unix()
-	lastDayOfPrevYears := time.Date(currentYear+1, 1, 0, 0, 0, 0, 0, currentLocation)
+	hour, minute, sec := nowTimestamp.Clock()
+
+	yesterday := time.Date(now.Year(), now.Month(), now.Day()-1, hour, minute, sec, 0, time.UTC)
+	lastWeek := time.Date(now.Year(), now.Month(), now.Day()-7, hour, minute, sec, 0, time.UTC)
+	lastMonth := time.Date(now.Year(), now.Month()-1, now.Day(), hour, minute, sec, 0, time.UTC)
+	lastYear := time.Date(now.Year()-1, now.Month(), now.Day(), hour, minute, sec, 0, time.UTC)
 	// lastOfMonth := firstOfMonth.AddDate(0, 1, -1)
 
-	fmt.Println(firstOfMonth)
-	fmt.Println(lastDayOfPrevYears)
+	fmt.Println("yesterday: ", yesterday)
+	fmt.Println("last week: ", lastWeek)
+	fmt.Println("last month: ", lastMonth)
+	fmt.Println("last year: ", lastYear)
 }
