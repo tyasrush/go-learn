@@ -5,24 +5,14 @@ import (
 	"math"
 )
 
+// Reference : https://stackoverflow.com/questions/51146294/reverse-a-number-without-making-it-a-string-in-javascript
 func ReverseNumber(param int64) int64 {
 	var revNumber int64 = 0
 	for param > 0 {
 		revNumber = (revNumber * 10) + (param % 10)
-		fmt.Println("revNumber : ", revNumber)
 		divParam := param / 10
 		param = int64(math.Floor(float64(divParam)))
-		fmt.Println(param)
 	}
-	// function reverseNumber(number) {
-	//   var revNumber = 0;
-	//   while (number > 0) {
-	//     revNumber = (revNumber * 10) + (number % 10);
-	//     number = Math.floor(number / 10);
-	//   }
-	//   return revNumber;
-	// }
-	// console.log(reverseNumber(876));
 	return revNumber
 }
 
