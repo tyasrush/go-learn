@@ -14,6 +14,7 @@ type NodeLevel struct {
 	level int
 }
 
+// https://faun.pub/2-different-ways-to-implement-bfs-in-golang-8399f5d2452d
 func bfs(root *Node) *Node {
 	// root checking
 	if root == nil {
@@ -33,6 +34,8 @@ func bfs(root *Node) *Node {
 		node, level := vertex.node, vertex.level
 		visited = append(visited, node)
 		queue = queue[1:]
+
+		fmt.Printf("level: %d visited: %v queue: %v\n", level, visited, queue)
 
 		if node.Left != nil {
 			leftNode := NodeLevel{
