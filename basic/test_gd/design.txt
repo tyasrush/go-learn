@@ -1,0 +1,25 @@
+core feature :
+1. high availability of url
+2. performance
+
+System Design :
+1. gateway (reverse proxy (envoy), etc)
+2. load balancing (masuk di gateway nya (AWS))
+3. instance server (n instance) ---> 1000 rps * 1Kb = 1Mb ---> 2 instance, kalo 1 down, 1 nya bisa recover
+4. DB (RDBMS = postgresSQl, MariaDB, dll)
+5. Cache (Redis)
+
+Scenario :
+- Client visit url
+client --- submit url -- load balancing --- url service (n instance untuk mencegah single point of failure) ---- Cache --- DB
+   |														   |        |
+   | 														   |---------
+   |													     url tujuan --- server
+   |															       |
+   |															       |
+   --------------------------------------------------------------------------------------------------------------------------render browser	  
+
+- Client register url 
+client --- input url --- load balancing --- url service --- Cache
+						|
+						------------- DB
